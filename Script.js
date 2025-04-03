@@ -1,31 +1,17 @@
-let display = document.getElementById("display");
-let currentInput = "";
+let display = document.getElementById('display');
 
-// Function to add numbers or operators to display
-function appendValue(value) {
-    currentInput += value;
-    display.value = currentInput;
+function appendToDisplay(value) {
+    display.value += value;
 }
 
-// Function to clear the display
 function clearDisplay() {
-    currentInput = "";
-    display.value = "";
+    display.value = '';
 }
 
-// Function to delete the last character
-function deleteLast() {
-    currentInput = currentInput.slice(0, -1);
-    display.value = currentInput;
-}
-
-// Function to calculate the result
-function calculateResult() {
+function calculate() {
     try {
-        currentInput = eval(currentInput); // Perform calculation
-        display.value = currentInput;
-    } catch {
-        display.value = "Error";
-        currentInput = "";
+        display.value = eval(display.value);
+    } catch (error) {
+        display.value = 'Error';
     }
 }
