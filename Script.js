@@ -1,20 +1,31 @@
+let display = document.getElementById("display");
+let currentInput = "";
+
+// Function to add numbers or operators to display
 function appendValue(value) {
-    document.getElementById("display").value += value;
+    currentInput += value;
+    display.value = currentInput;
 }
 
+// Function to clear the display
 function clearDisplay() {
-    document.getElementById("display").value = "";
+    currentInput = "";
+    display.value = "";
 }
 
+// Function to delete the last character
 function deleteLast() {
-    let display = document.getElementById("display").value;
-    document.getElementById("display").value = display.slice(0, -1);
+    currentInput = currentInput.slice(0, -1);
+    display.value = currentInput;
 }
 
+// Function to calculate the result
 function calculateResult() {
     try {
-        document.getElementById("display").value = eval(document.getElementById("display").value);
-    } catch (error) {
-        alert("Invalid input");
+        currentInput = eval(currentInput); // Perform calculation
+        display.value = currentInput;
+    } catch {
+        display.value = "Error";
+        currentInput = "";
     }
 }
