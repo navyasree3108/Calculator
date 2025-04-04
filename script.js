@@ -5,7 +5,10 @@ function appendToDisplay(value) {
     display.value += value;
     calculateRealTime();
 }
-
+function calculate() {
+  let result = eval(document.getElementById('display').value);
+  document.getElementById('display').value = result;
+}
 // Clear the display
 function clearDisplay() {
     display.value = '';
